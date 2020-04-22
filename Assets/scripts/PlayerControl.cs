@@ -8,10 +8,12 @@ public class PlayerControl : MonoBehaviour
     public float MaxSpeed = 5f;
     public float jumpForce = 500f;
 
-    private bool jump = false;
+    [HideInInspector]
+    public bool jump = false;
     private Transform groundCheck;
     private Rigidbody2D heroBody;
-    private bool faceRight = true;
+    [HideInInspector]
+    public bool faceRight = true;
     private bool grounded = false;
     // Start is called before the first frame update
     void Start()

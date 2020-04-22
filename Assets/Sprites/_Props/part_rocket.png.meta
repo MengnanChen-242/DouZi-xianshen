@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: bbbe340798352459386a0059f0d14360
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2984620851804984503
+    second: part_rocket
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -43,8 +46,8 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 0.50968987, y: 0.49999994}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -89,8 +92,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 
-      internalID: 0
+      spriteID: 237329fe55995834d93fb971d4e724af
+      internalID: -2984620851804984503
       vertices: []
       indices: 
       edges: []
