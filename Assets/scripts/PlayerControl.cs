@@ -15,11 +15,14 @@ public class PlayerControl : MonoBehaviour
     [HideInInspector]
     public bool faceRight = true;
     private bool grounded = false;
+
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         heroBody = GetComponent<Rigidbody2D>();
         groundCheck = transform.Find("GroundCheck");
+        anim = GetComponent<Animator>();
     }
 
 
@@ -36,6 +39,8 @@ public class PlayerControl : MonoBehaviour
             heroBody.velocity = new Vector2(Mathf.Sign(heroBody.velocity.x)
                 * MaxSpeed, heroBody.velocity.y);
         }
+        
+        
         if(input > 0 && faceRight == false)
         {
             filp();
@@ -46,9 +51,11 @@ public class PlayerControl : MonoBehaviour
         }
         if (jump)
         {
+            anim.SetTrigger("jump");
             heroBody.AddForce(new Vector2(0, jumpForce));
             jump = false;
         }
+        anim.SetFloat("speed", Mathf.Abs(input));
     }
     // Update is called once per frame
     void Update()
