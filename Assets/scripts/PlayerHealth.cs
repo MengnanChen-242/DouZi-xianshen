@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     private Vector3 healthScale;
     private PlayerControl playerControl;
     private Rigidbody2D heroBody;
+    private Animator anim;
     // Start is called before the first frame update
 
     void Awake()
@@ -22,6 +23,8 @@ public class PlayerHealth : MonoBehaviour
         heroBody = GetComponent<Rigidbody2D>();
         playerControl = GetComponent<PlayerControl>();
         healthScale = healthBar.transform.localScale;
+        anim = transform.root.gameObject.GetComponent<Animator>();
+
     }
     void Start()
     {
@@ -41,6 +44,22 @@ public class PlayerHealth : MonoBehaviour
         health -= DamageAmount;
         UpDateHealthBar();
     }
+    void Death()
+    {
+        anim.SetTrigger("Death");
+        Collider2D[] colliders = GetComponents<Collider2D>();
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            colliders[i].isTrigger = true;
+        }
+        SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            sprites[i].sortingLayerName = "character";
+        }
+        playerControl.enabled = false;
+        GetComponent<Gun>().enabled = false;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Enemy")
@@ -51,21 +70,14 @@ public class PlayerHealth : MonoBehaviour
                 {
                     TakeDamage(collision.gameObject.transform);
                     lastHurtTime = Time.time;
+                    if(health <= 0)
+                    {
+                        Death();
+                    }
                 }
                 else
                 {
-                    Collider2D[] colliders = GetComponents<Collider2D>();
-                    for(int i = 0; i < colliders.Length; i++)
-                    {
-                        colliders[i].isTrigger = true;
-                    }
-                    SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();
-                    for(int i = 0; i < sprites.Length; i++)
-                    {
-                        sprites[i].sortingLayerName = "UI";
-                    }
-                    playerControl.enabled = false;
-                    GetComponent<Gun>().enabled = false;
+                    Death();
                 }
             }
         }
