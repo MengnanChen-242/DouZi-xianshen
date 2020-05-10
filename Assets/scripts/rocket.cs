@@ -5,10 +5,11 @@ using UnityEngine;
 public class rocket : MonoBehaviour
 {
     public GameObject explosion;
+    private Enemy enemys;
     // Start is called before the first frame update
     void Start()
     {
-       
+        enemys = GameObject.Find("Enemy1").GetComponent<Enemy>();
     }
 
     void OnExplode()
@@ -23,6 +24,9 @@ public class rocket : MonoBehaviour
             OnExplode();
             Destroy(gameObject);
         }
+
+        if (collision.tag == "Enemy")
+            enemys.Hurt();
     }
     // Update is called once per frame
     void Update()
