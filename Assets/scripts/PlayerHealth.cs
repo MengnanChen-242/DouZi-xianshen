@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
     {
         
     }
-    void UpDateHealthBar()
+    public void UpdateHealthBar()
     {
         healthBar.material.color = Color.Lerp(Color.green, Color.red, 1- health * 0.01f);
         healthBar.transform.localScale = new Vector3(healthScale.x * health * 0.01f, 1, 1); 
@@ -42,7 +42,7 @@ public class PlayerHealth : MonoBehaviour
         heroBody.AddForce(hurtForce*hurtVector3);
 
         health -= DamageAmount;
-        UpDateHealthBar();
+        UpdateHealthBar();
     }
     void Death()
     {

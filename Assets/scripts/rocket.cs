@@ -19,6 +19,7 @@ public class rocket : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        enemys = collision.GetComponent<Enemy>();
         if(collision.tag != "Player")
        {
             OnExplode();
