@@ -9,6 +9,7 @@ TagManager:
   - BombPickup
   - ground
   - ExplosionFX
+  - prop
   layers:
   - Default
   - TransparentFX

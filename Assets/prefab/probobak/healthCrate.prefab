@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5479206857048379436}
   - component: {fileID: 8897651375950202476}
   - component: {fileID: 4773163570890790689}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: healthCrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6082101204731426860}
   - component: {fileID: 6416087427016994260}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: parachute
   m_TagString: Untagged
   m_Icon: {fileID: 0}
