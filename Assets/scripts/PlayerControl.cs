@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerControl : MonoBehaviour
 {
     public float MoveForce = 400f;
     public float MaxSpeed = 5f;
     public float jumpForce = 500f;
+    public AudioClip[] JumpClips;
+    public AudioMixer mixer;
 
     [HideInInspector]
     public bool jump = false;
+
+    private AudioSource audio;
     private Transform groundCheck;
     private Rigidbody2D heroBody;
     [HideInInspector]
@@ -23,6 +28,7 @@ public class PlayerControl : MonoBehaviour
         heroBody = GetComponent<Rigidbody2D>();
         groundCheck = transform.Find("GroundCheck");
         anim = GetComponent<Animator>();
+        audio = GetComponent<AudioSource>();
     }
 
 
@@ -54,6 +60,18 @@ public class PlayerControl : MonoBehaviour
             anim.SetTrigger("jump");
             heroBody.AddForce(new Vector2(0, jumpForce));
             jump = false;
+
+            if(audio != null)
+            {
+                if (!audio.isPlaying)
+                {
+                    int i = Random.RandomRange(0, JumpClips.Length);
+                    audio.clip = JumpClips[i];
+                    audio.Play();
+                    mixer.SetFloat("hero", 0);
+                }
+            }
+            
         }
         anim.SetFloat("speed", Mathf.Abs(input));
     }
