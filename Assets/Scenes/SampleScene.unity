@@ -941,7 +941,8 @@ AudioSource:
   m_GameObject: {fileID: 268523712}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7554302560309059964, guid: 8c0380f5fd459a9489ee19d044f34398,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1835,7 +1836,10 @@ MonoBehaviour:
   MoveForce: 400
   MaxSpeed: 5
   jumpForce: 500
-  JumpClips: []
+  JumpClips:
+  - {fileID: 8300000, guid: 50a8d8a939a0f4e77a0dac6ecd2e582b, type: 3}
+  - {fileID: 8300000, guid: fc55d077383484ac0ad66aa17fcd746f, type: 3}
+  - {fileID: 8300000, guid: dafa1cc4eb8714341a7c595abfba35d8, type: 3}
   mixer: {fileID: 24100000, guid: 8c0380f5fd459a9489ee19d044f34398, type: 2}
   jump: 0
   faceRight: 1
@@ -1938,7 +1942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bombLaid: 0
   bomb: {fileID: 100000, guid: c50132cb5c4f43e469718b7337f56a85, type: 3}
-  bombCount: 10
+  bombCount: 0
 --- !u!82 &654386033
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1951,7 +1955,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -7554302560309059964, guid: 8c0380f5fd459a9489ee19d044f34398,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

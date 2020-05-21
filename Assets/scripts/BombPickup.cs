@@ -6,11 +6,12 @@ public class BombPickup : MonoBehaviour
     private PickupSpawner pickupSpawner;
     private Animator anim;              // Reference to the animator component.
     private bool landed = false;        // Whether or not the crate has landed yet.
-
+    
     void Awake()
     {
         anim = transform.root.GetComponent<Animator>();
         pickupSpawner = GameObject.Find("PickupSpawner").GetComponent<PickupSpawner>();
+        
     }
 
 
@@ -31,5 +32,7 @@ public class BombPickup : MonoBehaviour
             gameObject.AddComponent<Rigidbody2D>();
             landed = true;
         }
+        LayBombs lay = other.GetComponent<LayBombs>();
+        lay.bombCount++;
     }
 }

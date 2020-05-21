@@ -14,7 +14,7 @@ public class PlayerControl : MonoBehaviour
     [HideInInspector]
     public bool jump = false;
 
-    private AudioSource audio;
+    private AudioSource audio1;
     private Transform groundCheck;
     private Rigidbody2D heroBody;
     [HideInInspector]
@@ -28,7 +28,7 @@ public class PlayerControl : MonoBehaviour
         heroBody = GetComponent<Rigidbody2D>();
         groundCheck = transform.Find("GroundCheck");
         anim = GetComponent<Animator>();
-        audio = GetComponent<AudioSource>();
+        audio1 = GetComponent<AudioSource>();
     }
 
 
@@ -61,14 +61,14 @@ public class PlayerControl : MonoBehaviour
             heroBody.AddForce(new Vector2(0, jumpForce));
             jump = false;
 
-            if(audio != null)
+            if(audio1 != null)
             {
-                if (!audio.isPlaying)
+                if (!audio1.isPlaying)
                 {
                     int i = Random.RandomRange(0, JumpClips.Length);
-                    audio.clip = JumpClips[i];
-                    audio.Play();
-                    mixer.SetFloat("hero", 0);
+                    audio1.clip = JumpClips[i];
+                    audio1.Play();
+                    mixer.SetFloat("Hero", 0);
                 }
             }
             
