@@ -97,7 +97,15 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: ee95d0b5c3e4b2149b307ad3978ba894
+    name: Herovolume
+  - guid: fbcbf761a18d27148926915d73234312
+    name: MasterVolume
+  - guid: 49cb35a14a23da847973b7999b3a45af
+    name: BKvolume
+  - guid: 16a14a52017cae6469e0f1504078d7c8
+    name: probsvolume
   m_AudioMixerGroupViews:
   - guids:
     - 16b27c0fc5d450942ae3c0be54778434

@@ -4,6 +4,8 @@ using System.Collections;
 public class HealthPickup : MonoBehaviour
 {
     public float healthBonus;               // How much health the crate gives the player.
+    public AudioClip boom;
+
     private PickupSpawner pickupSpawner;    // Reference to the pickup spawner.
     private Animator anim;                  // Reference to the animator component.
     private bool landed = false;                    // Whether or not the crate has landed.
@@ -19,10 +21,14 @@ public class HealthPickup : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        
         // 半空中被接着
         if (other.tag == "Player")
         {
             PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+
+            GameObject.FindGameObjectWithTag("PickupSpawner").GetComponent<AudioSource>().clip = boom;
+            GameObject.FindGameObjectWithTag("PickupSpawner").GetComponent<AudioSource>().Play();
 
             // 加血
             playerHealth.health += healthBonus;

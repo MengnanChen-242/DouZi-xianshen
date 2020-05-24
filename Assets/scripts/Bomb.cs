@@ -8,6 +8,7 @@ public class Bomb : MonoBehaviour
     public float bombForce = 100f;  // 冲击力
     public float fuseTime = 1.5f;   // 引线时间
     public GameObject explosion;    // 爆炸背景圆
+    public AudioClip boom;
 
     private LayBombs layBombs;              // Hero脚本
     private PickupSpawner pickupSpawner;    // 道具生成脚本，启动新协程用
@@ -59,6 +60,8 @@ public class Bomb : MonoBehaviour
             }
         }
 
+        GetComponent<AudioSource>().clip = boom;
+        GetComponent<AudioSource>().Play();
         // 播放爆炸后粒子效果
         explosionFX.transform.position = transform.position;
         explosionFX.Play();

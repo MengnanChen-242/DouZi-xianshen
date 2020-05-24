@@ -68,7 +68,7 @@ public class PlayerControl : MonoBehaviour
                     int i = Random.RandomRange(0, JumpClips.Length);
                     audio1.clip = JumpClips[i];
                     audio1.Play();
-                    mixer.SetFloat("Hero", 0);
+                    mixer.SetFloat("Herovolume", 0);
                 }
             }
             

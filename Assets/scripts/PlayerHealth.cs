@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public float damageInterval = 0.35f;
     public float hurtForce = 100f;
     public float DamageAmount = 10f;
+    public AudioClip[] hurtvoice;
 
     private SpriteRenderer healthBar;
     private float lastHurtTime;
@@ -15,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
     private PlayerControl playerControl;
     private Rigidbody2D heroBody;
     private Animator anim;
+    private AudioSource hurtmusic;
     // Start is called before the first frame update
 
     void Awake()
@@ -24,6 +26,7 @@ public class PlayerHealth : MonoBehaviour
         playerControl = GetComponent<PlayerControl>();
         healthScale = healthBar.transform.localScale;
         anim = transform.root.gameObject.GetComponent<Animator>();
+        hurtmusic = GetComponent<AudioSource>();
 
     }
     void Start()
@@ -66,6 +69,9 @@ public class PlayerHealth : MonoBehaviour
         {
             if(Time.time > lastHurtTime + damageInterval)
             {
+                int i = Random.RandomRange(0, hurtvoice.Length);
+                hurtmusic.clip = hurtvoice[i];
+                hurtmusic.Play();
                 if(health > 0)
                 {
                     TakeDamage(collision.gameObject.transform);

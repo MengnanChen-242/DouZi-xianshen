@@ -10,6 +10,7 @@ TagManager:
   - ground
   - ExplosionFX
   - prop
+  - PickupSpawner
   layers:
   - Default
   - TransparentFX
