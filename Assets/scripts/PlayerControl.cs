@@ -92,4 +92,10 @@ public class PlayerControl : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+
+    public void addScore()
+    {
+        RankListRead rankList = new RankListRead();
+        rankList.AddScore();
+    }
 }

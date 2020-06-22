@@ -6,15 +6,9 @@ using UnityEngine.UI;
 public class Scorefollow : MonoBehaviour
 {
     public int score = 0;
-    public Text scoretext;
-    public string str;
     // Start is called before the first frame update
-    
-
-    // Update is called once per frame
-    void Update()
+    public void addscore()
     {
-
-        str = scoretext.text;
-    }
+        score += 100;
+    } 
 }

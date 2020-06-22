@@ -11,6 +11,9 @@ TagManager:
   - ExplosionFX
   - prop
   - PickupSpawner
+  - Score
+  - ShowScore
+  - Enemy2
   layers:
   - Default
   - TransparentFX

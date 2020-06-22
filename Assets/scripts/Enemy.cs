@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -62,6 +63,10 @@ public class Enemy : MonoBehaviour
 
     void Death()
     {
+        Scorefollow scorefollow = GameObject.FindGameObjectWithTag("Score").GetComponent<Scorefollow>();
+        scorefollow.addscore();
+        Text text = GameObject.FindGameObjectWithTag("ShowScore").GetComponent<Text>();
+        text.text = scorefollow.score.ToString();
         SpriteRenderer[] renders = GetComponentsInChildren<SpriteRenderer>();
         foreach (SpriteRenderer s in renders)
             s.enabled = false;
